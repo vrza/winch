@@ -1,0 +1,17 @@
+.Dd August 30, 2020
+.Dt WINCH-INTERVAL 1
+.Os
+.Sh NAME
+.Nm winch-interval
+.Nd Run a command, re-run periodically or on terminal resize, showing output fullscreen
+.Sh SYNOPSIS
+.Nm
+\fI\,SECONDS \/\fR\fI\,COMMAND \/\fR[\fI\,ARG\/\fR]...
+.Sh FUNCTION
+.Nm
+clears the terminal screen and runs COMMAND at startup,, every SECONDS seconds, and on each terminal resize event (SIGWINCH).
+.Sh AUTHOR
+.Nm Written by Vladimir Vrzić
+.Sh LICENSE
+.Nm
+is distributed under the BSD 3-Clause License
