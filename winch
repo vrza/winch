@@ -1,0 +1,11 @@
+#!/bin/sh
+
+function redraw() {
+    printf "\e[1;1H\e[2J"
+    "$@"
+}
+
+trap 'redraw "$@"' WINCH
+
+redraw "$@"
+while :; do sleep 0.1; done
