@@ -12,4 +12,4 @@ Run a command periodically and on terminal resize, showing output fullscreen
 
 ## Synopsis
 
-    winch <seconds> <command>
+    winch-interval <seconds> <command>
