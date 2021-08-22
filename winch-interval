@@ -2,7 +2,7 @@
 
 TICK=0.1
 
-EXIT_USAGE=1
+EXIT_USAGE=64
 
 function usage() {
     echo "Usage: ${0} seconds command" >&2
