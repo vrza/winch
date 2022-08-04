@@ -4,7 +4,7 @@ TICK=0.1
 
 EXIT_USAGE=64
 
-function usage() {
+usage () {
     echo "Usage: ${0} seconds command" >&2
 }
 
@@ -15,15 +15,15 @@ fi
 
 interval="${1}"
 shift
-echo "${interval}" | grep -E '^[0-9]+$'
-if ( ! echo "${interval}" | grep -qE '^[0-9]+$' ); then
+echo "${interval}" | grep '^[0-9]\+$'
+if ( ! echo "${interval}" | grep -q '^[0-9]\+$' ); then
     usage
     exit "${EXIT_USAGE}"
 fi
 
-function redraw() {
-    printf "\e[1;1H\e[2J"
-    "${@}"
+redraw () {
+    clear
+    eval "${@}"
 }
 
 trap 'redraw "${@}"' WINCH
@@ -32,7 +32,7 @@ last_redraw_time="$(date '+%s')"
 redraw "${@}"
 while true; do
     time="$(date '+%s')"
-    elapsed="$(expr "${time}" - "${last_redraw_time}")"
+    elapsed="$(( ${time} - ${last_redraw_time} ))"
     if [ "${elapsed}" -ge "${interval}" ]; then
         redraw "${@}"
         last_redraw_time="${time}"

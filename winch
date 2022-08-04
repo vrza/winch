@@ -1,8 +1,8 @@
 #!/bin/sh
 
-function redraw() {
-    printf "\e[1;1H\e[2J"
-    "$@"
+redraw () {
+    clear
+    eval "$@"
 }
 
 trap 'redraw "$@"' WINCH
